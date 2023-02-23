@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
     
 const ColorForm = (props) => {
+    const { currentColor, setCurrentColor } = props;
+
     const [pickColor, setPickColor] = useState("");
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.onNewColor( pickColor );
+        setCurrentColor( [...currentColor, pickColor])
     };
     
     return (
         <form onSubmit={ handleSubmit }>
-            <h1>Pick a color:</h1>
-            <textarea 
-                rows="1"
-                cols="20"
+            <label htmlFor="color">Color: </label>
+            <input type="text" name="color"
                 onChange={ (e) => setPickColor(e.target.value) }
-                value={ pickColor }
-            ></textarea>
-            <input type="submit" value="Add" />
+                // value={ currentColor }
+            />
+            <button>Add</button>
         </form>
     );
 };

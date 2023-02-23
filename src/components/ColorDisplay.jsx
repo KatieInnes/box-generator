@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
     
 const ColorDisplay = (props) => {
+    const { currentColor } = props;
+
     return (
         <>
-            <h1>Current Color</h1>
-            <p>{ props.color }</p>
+            {
+                currentColor.map((color, index) => (
+                    <div key={index} 
+                    style={{display: "inline-block",
+                            margin: "15px",
+                            height: "100px",
+                            width: "100px",
+                            backgroundColor: color}}>
+                    </div>
+                ))
+            }
         </>
     );
 };

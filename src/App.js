@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
+import './App.css';
 import ColorForm from './components/ColorForm';
 import ColorDisplay from './components/ColorDisplay';
     
 function App() {
-  const [currentColor, setCurrentColor] = useState("");
-  
-  const yourColor = ( newColor ) => {
-    setCurrentColor( newColor );
-  }
-  
+  const [currentColor, setCurrentColor] = useState([]);
+
   return (
       <>
-          <ColorForm onNewColor={ yourColor } />
-          <ColorDisplay color={ currentColor } />
+          <ColorForm currentColor={ currentColor } setCurrentColor={ setCurrentColor } />
+          <ColorDisplay currentColor={ currentColor } />
       </>
     );
 }
